@@ -80,8 +80,8 @@ export default {
       const id = activeNode.id;
 
       activeNode.otype === "P"
-        ? this.$router.push(`/soliders/${id}`)
-        : this.$router.push(`/units/${id}`);
+        ? this.$router.push(`/soldier/${id}`)
+        : this.$router.push(`/unit/${id}`);
     },
   },
 };
