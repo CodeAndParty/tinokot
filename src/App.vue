@@ -24,11 +24,17 @@
 </template>
 
 <script>
+import OrganizationalStructure from "./components/OrganizationalStructure.vue";
+
 export default {
   name: "App",
 
   data: () => ({
     //
   }),
+
+  components: {
+    OrganizationalStructure,
+  },
 };
 </script>
