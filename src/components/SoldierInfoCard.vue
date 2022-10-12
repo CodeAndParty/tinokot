@@ -13,17 +13,19 @@
 
     <div>
       <v-card-title>
-        <span class="green--text">סמל</span>
+        <span class="green--text">{{ soldier?.rank }}</span>
         <span>&nbsp;</span>
-        <span>אלכסנדר דרפקין</span>
+        <span>{{ soldier?.name }}</span>
       </v-card-title>
-      <v-card-subtitle class="white--text">9044826</v-card-subtitle>
+      <v-card-subtitle class="white--text">{{
+        soldier?.pernr
+      }}</v-card-subtitle>
     </div>
 
     <v-divider vertical class="white"></v-divider>
     <div class="mx-auto">
       <v-icon color="accent">mdi-cake</v-icon>
-      <span>30.06.22</span>
+      <span>{{ soldier?.birthDate }}</span>
     </div>
 
     <v-divider vertical class="white"></v-divider>
@@ -31,13 +33,13 @@
       <v-icon color="accent">mdi-account-box</v-icon>
       <span>פרופיל</span>
       <span>&nbsp;</span>
-      <span>45</span>
+      <span>{{ soldier?.medicalScore }}</span>
     </div>
 
     <v-divider vertical class="white"></v-divider>
     <div class="mx-auto">
       <v-icon color="accent">mdi-phone</v-icon>
-      <span>054-7126468</span>
+      <span>{{ soldier?.cell }}</span>
     </div>
   </v-card>
 </template>
@@ -45,6 +47,8 @@
 <script>
 export default {
   name: "SoldierInfoCard",
+
+  props: ["soldier"],
 };
 </script>
 

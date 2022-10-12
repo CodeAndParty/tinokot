@@ -1,5 +1,5 @@
 <template>
-  <SoldierInfoCard></SoldierInfoCard>
+  <SoldierInfoCard :soldier="soldier"></SoldierInfoCard>
 </template>
 
 <script>
@@ -10,6 +10,18 @@ export default {
 
   components: {
     SoldierInfoCard,
+  },
+
+  data: () => ({
+    soldier: null,
+  }),
+
+  mounted() {
+    this.$http
+      .get(`${process.env.VUE_APP_API_URL}/soldiers/${this.$route.params.id}`)
+      .then((response) => {
+        this.soldier = response.data;
+      });
   },
 };
 </script>
