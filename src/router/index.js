@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/soldier/:id",
+    path: "/soldiers/:id",
     component: () =>
       import(/* webpackChunkName: "solider" */ "../views/SoldierView.vue"),
   },
