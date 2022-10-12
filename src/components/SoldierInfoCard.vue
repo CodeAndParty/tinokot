@@ -1,6 +1,6 @@
 <template>
   <v-card
-    id="solider-card"
+    id="soldier-info-card"
     color="primary"
     rounded="xl"
     height="120px"
@@ -13,19 +13,19 @@
 
     <div>
       <v-card-title>
-        <span class="green--text">{{ soldier?.rank }}</span>
+        <span class="green--text">{{ soldierInfo?.rank }}</span>
         <span>&nbsp;</span>
-        <span>{{ soldier?.name }}</span>
+        <span>{{ soldierInfo?.name }}</span>
       </v-card-title>
       <v-card-subtitle class="white--text">{{
-        soldier?.pernr
+        soldierInfo?.pernr
       }}</v-card-subtitle>
     </div>
 
     <v-divider vertical class="white"></v-divider>
     <div class="mx-auto">
       <v-icon color="accent">mdi-cake</v-icon>
-      <span>{{ soldier?.birthDate }}</span>
+      <span>{{ soldierInfo?.birthDate }}</span>
     </div>
 
     <v-divider vertical class="white"></v-divider>
@@ -33,13 +33,13 @@
       <v-icon color="accent">mdi-account-box</v-icon>
       <span>פרופיל</span>
       <span>&nbsp;</span>
-      <span>{{ soldier?.medicalScore }}</span>
+      <span>{{ soldierInfo?.medicalScore }}</span>
     </div>
 
     <v-divider vertical class="white"></v-divider>
     <div class="mx-auto">
       <v-icon color="accent">mdi-phone</v-icon>
-      <span>{{ soldier?.cell }}</span>
+      <span>{{ soldierInfo?.cell }}</span>
     </div>
   </v-card>
 </template>
@@ -48,12 +48,26 @@
 export default {
   name: "SoldierInfoCard",
 
-  props: ["soldier"],
+  mounted() {
+    this.$store.dispatch("fetchSoldier", this.$route.params.id);
+  },
+
+  computed: {
+    soldierInfo() {
+      return this.$store.getters.soldierInfo;
+    },
+  },
+
+  watch: {
+    $route() {
+      this.$store.dispatch("fetchSoldier", this.$route.params.id);
+    },
+  },
 };
 </script>
 
 <style scoped>
-#solider-card {
+#soldier-info-card {
   margin: 2% 2% 0;
 }
 </style>
