@@ -13,24 +13,29 @@ export default {
   },
 
   mounted() {
-    this.dispatchFetchInfo();
+    this.fetchSoldier();
   },
 
   computed: {
     soldierInfo() {
       return this.$store.getters.info;
     },
+
+    soldierPersistenceGrants() {
+      return this.$store.getters.PersistenceGrants;
+    },
   },
 
   watch: {
     $route() {
-      this.dispatchFetchInfo();
+      this.fetchSoldier();
     },
   },
 
   methods: {
-    dispatchFetchInfo() {
+    fetchSoldier() {
       this.$store.dispatch("fetchInfo", this.$route.params.id);
+      this.$store.dispatch("fetchPersistenceGrants", this.$route.params.id);
     },
   },
 };
