@@ -1,5 +1,5 @@
 <template>
-  <SoldierInfoCard></SoldierInfoCard>
+  <SoldierInfoCard :soldierInfo="soldierInfo"></SoldierInfoCard>
 </template>
 
 <script>
@@ -10,6 +10,28 @@ export default {
 
   components: {
     SoldierInfoCard,
+  },
+
+  mounted() {
+    this.dispatchFetchInfo();
+  },
+
+  computed: {
+    soldierInfo() {
+      return this.$store.getters.info;
+    },
+  },
+
+  watch: {
+    $route() {
+      this.dispatchFetchInfo();
+    },
+  },
+
+  methods: {
+    dispatchFetchInfo() {
+      this.$store.dispatch("fetchInfo", this.$route.params.id);
+    },
   },
 };
 </script>

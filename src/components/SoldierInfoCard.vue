@@ -48,21 +48,7 @@
 export default {
   name: "SoldierInfoCard",
 
-  mounted() {
-    this.$store.dispatch("fetchInfo", this.$route.params.id);
-  },
-
-  computed: {
-    soldierInfo() {
-      return this.$store.getters.info;
-    },
-  },
-
-  watch: {
-    $route() {
-      this.$store.dispatch("fetchInfo", this.$route.params.id);
-    },
-  },
+  props: ["soldierInfo"],
 };
 </script>
 
