@@ -49,18 +49,18 @@ export default {
   name: "SoldierInfoCard",
 
   mounted() {
-    this.$store.dispatch("fetchSoldier", this.$route.params.id);
+    this.$store.dispatch("fetchInfo", this.$route.params.id);
   },
 
   computed: {
     soldierInfo() {
-      return this.$store.getters.soldierInfo;
+      return this.$store.getters.info;
     },
   },
 
   watch: {
     $route() {
-      this.$store.dispatch("fetchSoldier", this.$route.params.id);
+      this.$store.dispatch("fetchInfo", this.$route.params.id);
     },
   },
 };

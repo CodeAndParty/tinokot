@@ -5,11 +5,11 @@ const state = {
 };
 
 const getters = {
-  soldierInfo: (state) => state.info,
+  info: (state) => state.info,
 };
 
 const actions = {
-  async fetchSoldier({ commit }, id) {
+  async fetchInfo({ commit }, id) {
     const response = await axios.get(
       `${process.env.VUE_APP_API_URL}/soldiers/${id}`
     );
