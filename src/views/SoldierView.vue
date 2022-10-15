@@ -1,5 +1,5 @@
 <template>
-  <SoldierInfoCard :soldierInfo="soldierInfo"></SoldierInfoCard>
+  <SoldierInfoCard></SoldierInfoCard>
 </template>
 
 <script>
@@ -14,16 +14,6 @@ export default {
 
   mounted() {
     this.fetchSoldier();
-  },
-
-  computed: {
-    soldierInfo() {
-      return this.$store.getters.info;
-    },
-
-    soldierPersistenceGrants() {
-      return this.$store.getters.PersistenceGrants;
-    },
   },
 
   watch: {

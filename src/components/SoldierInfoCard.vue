@@ -48,7 +48,11 @@
 export default {
   name: "SoldierInfoCard",
 
-  props: ["soldierInfo"],
+  computed: {
+    soldierInfo() {
+      return this.$store.getters.info;
+    },
+  },
 };
 </script>
 
