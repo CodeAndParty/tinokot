@@ -36,5 +36,39 @@
       "medicalScore": -20,
       "cell": "1-800-400-400"
     }
+  ],
+  "persistenceGrants": [
+    {
+      "id": 1,
+      "soldierId": 2,
+      "firstDate": "1980-12-01",
+      "secondDate": "1987-11-09",
+      "thirdDate": "1995-02-01",
+      "fourthDate": "2004-09-01"
+    },
+    {
+      "id": 2,
+      "soldierId": 3,
+      "firstDate": "2022-10-15",
+      "secondDate": "2023-12-04",
+      "thirdDate": "2025-01-01",
+      "fourthDate": "2026-08-30"
+    },
+    {
+      "id": 3,
+      "soldierId": 5,
+      "firstDate": "1970-03-15",
+      "secondDate": "2020-05-17",
+      "thirdDate": "2050-12-31",
+      "fourthDate": "3000-01-01"
+    },
+    {
+      "id": 4,
+      "soldierId": 6,
+      "firstDate": "2021-09-01",
+      "secondDate": "2022-06-30",
+      "thirdDate": "2023-01-01",
+      "fourthDate": "2025-11-23"
+    }
   ]
 }
