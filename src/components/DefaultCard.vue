@@ -1,5 +1,11 @@
 <template>
-  <v-card color="white" rounded="xl" elevation="6" width="400px" class="ma-1">
+  <v-card
+    color="white"
+    rounded="xl"
+    elevation="6"
+    :width="width || '400px'"
+    class="ma-1"
+  >
     <v-card-title class="justify-center">
       {{ title }}
     </v-card-title>
@@ -14,6 +20,7 @@ export default {
 
   props: {
     title: String,
+    width: String,
   },
 };
 </script>
