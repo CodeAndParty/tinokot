@@ -7,7 +7,14 @@ const state = {
 
 const getters = {
   info: (state) => state.info,
-  persistenceGrants: (state) => state.persistenceGrants,
+  persistenceGrantsDates: (state) => {
+    return [
+      state.persistenceGrants?.firstDate,
+      state.persistenceGrants?.secondDate,
+      state.persistenceGrants?.thirdDate,
+      state.persistenceGrants?.fourthDate,
+    ];
+  },
 };
 
 const actions = {
@@ -22,7 +29,7 @@ const actions = {
     const response = await axios.get(
       `${process.env.VUE_APP_API_URL}/persistenceGrants/?soldierId=${soldierId}`
     );
-    commit("setPersistenceGrants", response.data);
+    commit("setPersistenceGrants", response.data[0]);
   },
 };
 
