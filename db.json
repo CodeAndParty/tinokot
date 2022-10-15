@@ -70,5 +70,85 @@
       "thirdDate": "2023-01-01",
       "fourthDate": "2025-11-23"
     }
+  ],
+  "attendanceReport": [
+    {
+      "id": 1,
+      "unitId": 1,
+      "unitName": "שחר",
+      "attendance": [
+        {
+          "status": "נוכחים",
+          "amount": 200
+        },
+        {
+          "status": "טרם הוזן",
+          "amount": 1200
+        },
+        {
+          "status": "חופשה",
+          "amount": 1200
+        },
+        {
+          "status": "מחילה",
+          "amount": 0
+        },
+        {
+          "status": "בידוד",
+          "amount": 6
+        },
+        {
+          "status": "קורס",
+          "amount": 28
+        },
+        {
+          "status": "חול",
+          "amount": 123
+        },
+        {
+          "status": "אחר",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "unitId": 4,
+      "unitName": "מצפן",
+      "attendance": [
+        {
+          "status": "נוכחים",
+          "amount": 1300
+        },
+        {
+          "status": "טרם הוזן",
+          "amount": 1560
+        },
+        {
+          "status": "חופשה",
+          "amount": 500
+        },
+        {
+          "status": "מחילה",
+          "amount": 200
+        },
+        {
+          "status": "בידוד",
+          "amount": 80
+        },
+        {
+          "status": "קורס",
+          "amount": 15
+        },
+        {
+          "status": "חול",
+          "amount": 35
+        },
+        {
+          "status": "אחר",
+          "amount": 120
+        }
+      ]
+    }
   ]
 }
