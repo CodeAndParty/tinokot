@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import SoldierInfoCard from "@/components/SoldierInfoCard.vue";
-import PersistenceGrantsCarousel from "@/components/PersistenceGrantsCarousel.vue";
+import SoldierInfoCard from "@/components/SoldierInfo.vue";
+import PersistenceGrantsCarousel from "@/components/PersistenceGrants.vue";
 
 export default {
   name: "SoldierView",
