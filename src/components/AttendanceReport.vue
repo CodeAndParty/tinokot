@@ -1,11 +1,13 @@
 <template>
   <div>
     <h1 class="ma-1">{{ unitName }}</h1>
-    <DefaultCard
-      id="attendance-card"
-      width="auto"
-      :title="'נוכחות |' + ' ' + $formatDateString(Date().toString())"
-    >
+    <BaseCard id="attendance-card" width="auto">
+      <template #title>
+        <span>נוכחות</span>
+      </template>
+      <template #subtitle>
+        <span>{{ $formatDateString(Date().toString()) }}</span>
+      </template>
       <v-card-text class="font-weight-bold d-flex flex-column text-h6">
         <span class="secondary--text">נוכחים</span>
         <span class="success--text">{{ attendance?.[0]?.amount }}</span>
@@ -39,17 +41,17 @@
           </p>
         </div>
       </v-card-text>
-    </DefaultCard>
+    </BaseCard>
   </div>
 </template>
 
 <script>
-import DefaultCard from "./DefaultCard.vue";
+import BaseCard from "./BaseCard.vue";
 
 export default {
   name: "AttendanceReport",
 
-  components: { DefaultCard },
+  components: { BaseCard },
 
   computed: {
     unitName() {

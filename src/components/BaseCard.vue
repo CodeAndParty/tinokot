@@ -6,9 +6,12 @@
     :width="width || '400px'"
     class="ma-1"
   >
-    <v-card-title class="justify-center">
-      {{ title }}
+    <v-card-title class="justify-center font-weight-bold primary--text">
+      <slot name="title" />
     </v-card-title>
+    <v-card-subtitle class="text-center">
+      <slot name="subtitle" />
+    </v-card-subtitle>
     <v-divider></v-divider>
     <slot></slot>
   </v-card>
@@ -16,10 +19,9 @@
 
 <script>
 export default {
-  name: "DefaultCard",
+  name: "BaseCard",
 
   props: {
-    title: String,
     width: String,
   },
 };

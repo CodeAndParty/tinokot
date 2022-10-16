@@ -1,5 +1,6 @@
 <template>
-  <DefaultCard title="מענקי התמדה">
+  <BaseCard>
+    <template #title>מענקי התמדה</template>
     <v-carousel hide-delimiters height="fit-content" :continuous="false">
       <v-carousel-item
         v-for="(date, index) in persistenceGrantsDates"
@@ -27,16 +28,16 @@
         </div>
       </v-carousel-item>
     </v-carousel>
-  </DefaultCard>
+  </BaseCard>
 </template>
 
 <script>
-import DefaultCard from "./DefaultCard.vue";
+import BaseCard from "./BaseCard.vue";
 
 export default {
   name: "PersistenceGrants",
 
-  components: { DefaultCard },
+  components: { BaseCard },
 
   computed: {
     persistenceGrantsDates() {

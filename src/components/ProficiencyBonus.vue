@@ -1,5 +1,6 @@
 <template>
-  <DefaultCard title="גמוש">
+  <BaseCard>
+    <template #title> גמו"ש </template>
     <div v-if="proficiencyBonus?.type === 'A'" class="text-center">
       <p>
         <span class="text-h6 font-weight-bold">גמוש א</span>
@@ -50,15 +51,15 @@
         <v-icon v-else x-large color="error"> mdi-close </v-icon>
       </div>
     </div>
-  </DefaultCard>
+  </BaseCard>
 </template>
 
 <script>
-import DefaultCard from "./DefaultCard.vue";
+import BaseCard from "./BaseCard.vue";
 export default {
   name: "ProficiencyBonus",
 
-  components: { DefaultCard },
+  components: { BaseCard },
 
   computed: {
     proficiencyBonus() {
