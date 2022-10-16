@@ -76,9 +76,12 @@ export default {
 
   watch: {
     activatedNodes(activatedNodes) {
+      if (activatedNodes.length === 0) return;
+
       const activeNode = activatedNodes[0];
       const id = activeNode.id;
 
+      if (id === +this.$route.params.id) return; // Avoided redundant navigation to current location
       activeNode.otype === "P"
         ? this.$router.push(`/soldiers/${id}`)
         : this.$router.push(`/units/${id}`);
