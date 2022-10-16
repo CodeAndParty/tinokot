@@ -2,12 +2,14 @@
   <div>
     <SoldierInfoCard></SoldierInfoCard>
     <PersistenceGrantsCarousel></PersistenceGrantsCarousel>
+    <ProficiencyBonus></ProficiencyBonus>
   </div>
 </template>
 
 <script>
 import SoldierInfoCard from "@/components/SoldierInfo.vue";
 import PersistenceGrantsCarousel from "@/components/PersistenceGrants.vue";
+import ProficiencyBonus from "@/components/ProficiencyBonus.vue";
 
 export default {
   name: "SoldierView",
@@ -15,6 +17,7 @@ export default {
   components: {
     SoldierInfoCard,
     PersistenceGrantsCarousel,
+    ProficiencyBonus,
   },
 
   mounted() {
@@ -29,8 +32,10 @@ export default {
 
   methods: {
     fetchSoldier() {
-      this.$store.dispatch("fetchInfo", this.$route.params.id);
-      this.$store.dispatch("fetchPersistenceGrants", this.$route.params.id);
+      const soldierId = this.$route.params.id;
+      this.$store.dispatch("fetchInfo", soldierId);
+      this.$store.dispatch("fetchPersistenceGrants", soldierId);
+      this.$store.dispatch("fetchProficiencyBonus", soldierId);
     },
   },
 };
