@@ -1,22 +1,22 @@
 <template>
   <div>
-    <SoldierInfoCard></SoldierInfoCard>
-    <PersistenceGrantsCarousel></PersistenceGrantsCarousel>
+    <SoldierInfo></SoldierInfo>
+    <PersistenceGrants></PersistenceGrants>
     <ProficiencyBonus></ProficiencyBonus>
   </div>
 </template>
 
 <script>
-import SoldierInfoCard from "@/components/SoldierInfo.vue";
-import PersistenceGrantsCarousel from "@/components/PersistenceGrants.vue";
+import SoldierInfo from "@/components/SoldierInfo.vue";
+import PersistenceGrants from "@/components/PersistenceGrants.vue";
 import ProficiencyBonus from "@/components/ProficiencyBonus.vue";
 
 export default {
   name: "SoldierView",
 
   components: {
-    SoldierInfoCard,
-    PersistenceGrantsCarousel,
+    SoldierInfo,
+    PersistenceGrants,
     ProficiencyBonus,
   },
 

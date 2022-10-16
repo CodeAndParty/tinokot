@@ -34,7 +34,7 @@
 import DefaultCard from "./DefaultCard.vue";
 
 export default {
-  name: "PersistenceGrantsCarousel",
+  name: "PersistenceGrants",
 
   components: { DefaultCard },
 
