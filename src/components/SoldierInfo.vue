@@ -25,7 +25,7 @@
     <v-divider vertical class="white"></v-divider>
     <div class="mx-auto">
       <v-icon color="accent">mdi-cake</v-icon>
-      <span>{{ soldierInfo?.birthDate }}</span>
+      <span>{{ $formatDateString(soldierInfo?.birthDate, false) }}</span>
     </div>
 
     <v-divider vertical class="white"></v-divider>

@@ -4,7 +4,7 @@
     <DefaultCard
       id="attendance-card"
       width="auto"
-      :title="'נוכחות |' + new Date().toLocaleDateString('he')"
+      :title="'נוכחות |' + ' ' + $formatDateString(Date().toString())"
     >
       <v-card-text class="font-weight-bold d-flex flex-column text-h6">
         <span class="secondary--text">נוכחים</span>

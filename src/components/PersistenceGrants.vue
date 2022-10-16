@@ -12,16 +12,14 @@
               <span class="text-h6">מענק {{ index + 1 }}</span>
               <br />
               <span class="font-weight-bold">
-                {{
-                  new Date(date).toLocaleDateString("he", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })
-                }}
+                {{ $formatDateString(date) }}
               </span>
             </p>
-            <v-icon v-if="new Date(date) <= new Date()" x-large color="success">
+            <v-icon
+              v-if="!$isDateStringBiggerThanToday(date)"
+              x-large
+              color="success"
+            >
               mdi-check
             </v-icon>
             <v-icon v-else x-large color="error"> mdi-close </v-icon>

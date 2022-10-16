@@ -5,17 +5,11 @@
         <span class="text-h6 font-weight-bold">גמוש א</span>
         <br />
         <span>
-          {{
-            new Date(proficiencyBonus?.firstDate).toLocaleDateString("he", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
-          }}
+          {{ $formatDateString(proficiencyBonus?.firstDate) }}
         </span>
       </p>
       <v-icon
-        v-if="new Date(proficiencyBonus?.firstDate) <= new Date()"
+        v-if="!$isDateStringBiggerThanToday(proficiencyBonus?.firstDate)"
         x-large
         color="success"
       >
@@ -32,25 +26,21 @@
           <br />
           <span>
             {{
-              new Date(
+              $formatDateString(
                 index === 1
                   ? proficiencyBonus?.firstDate
                   : proficiencyBonus?.secondDate
-              ).toLocaleDateString("he", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })
+              )
             }}
           </span>
         </p>
         <v-icon
           v-if="
-            new Date(
+            !$isDateStringBiggerThanToday(
               index === 1
                 ? proficiencyBonus?.firstDate
                 : proficiencyBonus?.secondDate
-            ) <= new Date()
+            )
           "
           x-large
           color="success"
