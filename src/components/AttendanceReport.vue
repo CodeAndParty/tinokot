@@ -1,7 +1,7 @@
 <template>
   <fragment>
     <h1 class="ma-1">{{ unitName }}</h1>
-    <BaseCard id="attendance-card" width="auto">
+    <BaseCard id="attendance-card" width="auto" :clickable="false">
       <template #title>
         <span>נוכחות</span>
       </template>
