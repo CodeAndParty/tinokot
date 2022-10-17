@@ -3,6 +3,7 @@
     color="white"
     rounded="xl"
     elevation="6"
+    min-width="400"
     min-height="250"
     :class="{ 'cursor-pointer': isClickable, 'ma-10': !isDialog }"
     @click.native="$emit('click')"
