@@ -1,6 +1,5 @@
 <template>
   <v-card
-    id="soldier-info-card"
     color="primary"
     rounded="xl"
     height="120px"
@@ -55,9 +54,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#soldier-info-card {
-  margin: 2% 2% 0;
-}
-</style>
