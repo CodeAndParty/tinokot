@@ -1,5 +1,5 @@
 <template>
-  <BaseCard is-clickable @click="$root.$emit('openDialog')">
+  <BaseCard is-clickable @click="$root.$emit('openPersistenceGrantsDialog')">
     <template #title>מענקי התמדה</template>
     <v-carousel hide-delimiters height="fit-content" :continuous="false">
       <v-carousel-item

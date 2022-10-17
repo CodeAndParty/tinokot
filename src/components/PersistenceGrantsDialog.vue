@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog>
+  <BaseDialog v-model="isDialogOpen" ref="dialog">
     <template #title> מענקי התמדה </template>
     <v-progress-linear
       value="100"
@@ -33,6 +33,10 @@ export default {
   name: "PersistenceGrantsDialog",
 
   components: { BaseDialog },
+
+  mounted() {
+    this.$root.$on("openPersistenceGrantsDialog", this.$refs.dialog.openDialog);
+  },
 
   computed: {
     timeline() {

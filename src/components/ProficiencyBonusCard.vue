@@ -1,5 +1,5 @@
 <template>
-  <BaseCard is-clickable>
+  <BaseCard is-clickable @click="$root.$emit('openProficiencyBonusDialog')">
     <template #title> גמו"ש </template>
 
     <div v-for="n in proficiencyBonus?.type === 'A' ? 1 : 2" :key="n">
