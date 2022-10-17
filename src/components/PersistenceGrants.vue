@@ -1,7 +1,7 @@
 <template>
   <fragment>
-    <PersistenceGrantsCarousel></PersistenceGrantsCarousel>
-    <PersistenceGrantsDialog></PersistenceGrantsDialog>
+    <PersistenceGrantsCarousel />
+    <PersistenceGrantsDialog />
   </fragment>
 </template>
 
