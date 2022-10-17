@@ -1,9 +1,20 @@
 <template>
-  <div>
-    <SoldierInfo></SoldierInfo>
-    <PersistenceGrants></PersistenceGrants>
-    <ProficiencyBonus></ProficiencyBonus>
-  </div>
+  <v-container fluid>
+    <v-row no-gutters>
+      <v-col>
+        <SoldierInfo></SoldierInfo>
+      </v-col>
+    </v-row>
+    <v-row no-gutters>
+      <v-col>
+        <PersistenceGrants></PersistenceGrants>
+      </v-col>
+      <v-col>
+        <ProficiencyBonus></ProficiencyBonus>
+      </v-col>
+    </v-row>
+    <v-row no-gutters> </v-row>
+  </v-container>
 </template>
 
 <script>
