@@ -1,10 +1,6 @@
 <template>
   <div class="text-center">
-    <v-dialog
-      v-model="dialog"
-      width="400"
-      content-class="elevation-0 rounded-xl"
-    >
+    <v-dialog v-model="dialog" content-class="elevation-0 rounded-xl">
       <BaseCard width="auto">
         <template #title>
           <v-spacer></v-spacer>
