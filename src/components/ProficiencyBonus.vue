@@ -1,5 +1,5 @@
 <template>
-  <BaseCard>
+  <BaseCard is-clickable>
     <template #title> גמו"ש </template>
     <div v-if="proficiencyBonus?.type === 'A'" class="text-center">
       <p>

@@ -1,7 +1,7 @@
 <template>
   <fragment>
     <h1 class="ma-1">{{ unitName }}</h1>
-    <BaseCard id="attendance-card" width="auto" :clickable="false">
+    <BaseCard>
       <template #title>
         <span>נוכחות</span>
       </template>
@@ -76,8 +76,4 @@ export default {
 };
 </script>
 
-<style scoped>
-#attendance-card {
-  margin: 2% 2% 0 !important;
-}
-</style>
+<style scoped></style>

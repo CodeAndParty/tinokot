@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <v-dialog v-model="dialog" content-class="elevation-0 rounded-xl">
-      <BaseCard width="auto">
+      <BaseCard is-dialog>
         <template #title>
           <v-spacer></v-spacer>
           <slot name="title" />
