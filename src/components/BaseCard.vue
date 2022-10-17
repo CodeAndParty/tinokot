@@ -5,6 +5,7 @@
     elevation="6"
     :width="width"
     class="ma-1"
+    :class="{ 'cursor-pointer': clickable }"
     @click.native="$emit('click')"
   >
     <v-card-title class="justify-center font-weight-bold primary--text">
@@ -28,6 +29,17 @@ export default {
       required: false,
       default: "400",
     },
+    clickable: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
 };
 </script>
+
+<style scoped>
+.cursor-pointer {
+  cursor: pointer;
+}
+</style>
