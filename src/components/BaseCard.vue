@@ -3,9 +3,8 @@
     color="white"
     rounded="xl"
     elevation="6"
-    :width="width"
-    class="ma-1"
-    :class="{ 'cursor-pointer': clickable }"
+    min-height="250"
+    :class="{ 'cursor-pointer': isClickable, 'ma-10': !isDialog }"
     @click.native="$emit('click')"
   >
     <v-card-title class="justify-center font-weight-bold primary--text">
@@ -24,15 +23,15 @@ export default {
   name: "BaseCard",
 
   props: {
-    width: {
-      type: String,
-      required: false,
-      default: "400",
-    },
-    clickable: {
+    isClickable: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
+    },
+    isDialog: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
 };
