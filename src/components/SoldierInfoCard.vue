@@ -45,7 +45,7 @@
 
 <script>
 export default {
-  name: "SoldierInfo",
+  name: "SoldierInfoCard",
 
   computed: {
     soldierInfo() {

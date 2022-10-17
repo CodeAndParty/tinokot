@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-row no-gutters>
       <v-col>
-        <SoldierInfo></SoldierInfo>
+        <SoldierInfoCard></SoldierInfoCard>
       </v-col>
     </v-row>
     <v-row no-gutters>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import SoldierInfo from "@/components/SoldierInfo.vue";
+import SoldierInfoCard from "@/components/SoldierInfoCard.vue";
 import PersistenceGrants from "@/components/PersistenceGrants.vue";
 import ProficiencyBonus from "@/components/ProficiencyBonus.vue";
 
@@ -26,7 +26,7 @@ export default {
   name: "SoldierView",
 
   components: {
-    SoldierInfo,
+    SoldierInfoCard,
     PersistenceGrants,
     ProficiencyBonus,
   },
