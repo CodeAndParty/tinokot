@@ -24,14 +24,16 @@ import BaseCard from "./BaseCard.vue";
 export default {
   name: "BaseDialog",
 
+  components: { BaseCard },
+
   data: () => ({
     dialog: false,
   }),
 
-  mounted() {
-    this.$root.$on("openDialog", () => (this.dialog = true));
+  methods: {
+    openDialog() {
+      this.dialog = true;
+    },
   },
-
-  components: { BaseCard },
 };
 </script>
