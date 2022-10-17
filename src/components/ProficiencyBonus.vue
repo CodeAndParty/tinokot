@@ -1,44 +1,35 @@
 <template>
   <BaseCard is-clickable>
     <template #title> גמו"ש </template>
-    <div v-if="proficiencyBonus?.type === 'A'" class="text-center">
-      <p>
-        <span class="text-h6 font-weight-bold">גמוש א</span>
-        <br />
-        <span>
-          {{ $formatDateString(proficiencyBonus?.firstDate) }}
-        </span>
-      </p>
-      <v-icon
-        v-if="!$isDateStringBiggerThanToday(proficiencyBonus?.firstDate)"
-        x-large
-        color="success"
+
+    <div v-for="n in proficiencyBonus?.type === 'A' ? 1 : 2" :key="n">
+      <div
+        class="px-5"
+        :class="{
+          'text-center mt-10': proficiencyBonus?.type === 'A',
+          'd-flex mt-4': proficiencyBonus?.type === 'AB',
+        }"
       >
-        mdi-check
-      </v-icon>
-      <v-icon v-else x-large color="error"> mdi-close </v-icon>
-    </div>
-    <div v-else>
-      <div v-for="index in 2" :key="index" class="d-flex justify-space-between">
-        <p>
+        <p class="mb-0">
           <span class="text-h6 font-weight-bold">{{
-            index === 1 ? "גמוש א" : "גמוש ב"
+            n === 1 ? "גמוש א" : "גמוש ב"
           }}</span>
           <br />
           <span>
             {{
               $formatDateString(
-                index === 1
+                n === 1
                   ? proficiencyBonus?.firstDate
                   : proficiencyBonus?.secondDate
               )
             }}
           </span>
         </p>
+        <v-spacer v-if="proficiencyBonus?.type === 'AB'"></v-spacer>
         <v-icon
           v-if="
             !$isDateStringBiggerThanToday(
-              index === 1
+              n === 1
                 ? proficiencyBonus?.firstDate
                 : proficiencyBonus?.secondDate
             )
@@ -50,6 +41,10 @@
         </v-icon>
         <v-icon v-else x-large color="error"> mdi-close </v-icon>
       </div>
+      <v-divider
+        v-if="proficiencyBonus?.type === 'AB' && n === 1"
+        class="my-5"
+      ></v-divider>
     </div>
   </BaseCard>
 </template>
