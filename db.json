@@ -77,28 +77,32 @@
       "soldierId": 2,
       "type": "AB",
       "firstDate": "1995-06-21",
-      "secondDate": "2004-11-27"
+      "secondDate": "2004-11-27",
+      "completed": 1
     },
     {
       "id": 2,
       "soldierId": 3,
       "type": "A",
       "firstDate": "2023-06-21",
-      "secondDate": null
+      "secondDate": null,
+      "completed": 0.75
     },
     {
       "id": 3,
       "soldierId": 5,
       "type": "A",
       "firstDate": "1995-06-21",
-      "secondDate": null
+      "secondDate": null,
+      "completed": 1
     },
     {
       "id": 4,
       "soldierId": 6,
       "type": "AB",
       "firstDate": "2021-03-17",
-      "secondDate": "2023-04-12"
+      "secondDate": "2023-04-12",
+      "completed": 0.376
     }
   ],
   "attendanceReport": [
