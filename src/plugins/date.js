@@ -12,5 +12,11 @@ Vue.use({
     Vue.prototype.$isDateStringBiggerThanToday = (dateString) => {
       return new Date(dateString) >= new Date();
     };
+    Vue.prototype.$isDateStringToday = (dateString) => {
+      return (
+        Vue.prototype.$formatDateString(new Date(dateString)) ===
+        Vue.prototype.$formatDateString(new Date())
+      );
+    };
   },
 });
