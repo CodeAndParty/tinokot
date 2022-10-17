@@ -35,7 +35,7 @@
 import BaseCard from "./BaseCard.vue";
 
 export default {
-  name: "PersistenceGrantsCarousel",
+  name: "PersistenceGrantsCardCarousel",
 
   components: { BaseCard },
 

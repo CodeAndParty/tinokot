@@ -1,15 +1,15 @@
 <template>
   <fragment>
-    <PersistenceGrantsCarousel />
+    <PersistenceGrantsCardCarousel />
     <PersistenceGrantsDialog />
   </fragment>
 </template>
 
 <script>
-import PersistenceGrantsCarousel from "./PersistenceGrantsCarousel.vue";
+import PersistenceGrantsCardCarousel from "./PersistenceGrantsCardCarousel.vue";
 import PersistenceGrantsDialog from "./PersistenceGrantsDialog.vue";
 export default {
   name: "PersistenceGrants",
-  components: { PersistenceGrantsCarousel, PersistenceGrantsDialog },
+  components: { PersistenceGrantsCardCarousel, PersistenceGrantsDialog },
 };
 </script>
