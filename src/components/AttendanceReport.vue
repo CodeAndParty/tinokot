@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <fragment>
     <h1 class="ma-1">{{ unitName }}</h1>
     <BaseCard id="attendance-card" width="auto">
       <template #title>
@@ -42,7 +42,7 @@
         </div>
       </v-card-text>
     </BaseCard>
-  </div>
+  </fragment>
 </template>
 
 <script>
