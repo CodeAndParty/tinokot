@@ -35,9 +35,8 @@ export default {
   components: { BaseDialog },
 
   mounted() {
-    this.$root.$on("openPersistenceGrantsDialog", this.$refs.dialog.openDialog);
+    this.$root.$on("openDialog", this.openDialog);
   },
-
   computed: {
     timeline() {
       const persistenceGrantsDates =
@@ -64,6 +63,14 @@ export default {
         }
       });
       return timeline;
+    },
+  },
+
+  methods: {
+    openDialog(dialogName) {
+      if (dialogName === "persistenceGrants") {
+        this.$refs.dialog.openDialog();
+      }
     },
   },
 };
