@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog v-model="isDialogOpen" ref="dialog">
+  <BaseDialog ref="dialog">
     <template #title> מענקי התמדה </template>
     <v-progress-linear
       value="100"
