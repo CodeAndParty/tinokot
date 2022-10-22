@@ -47,6 +47,7 @@ export default {
       this.$store.dispatch("fetchInfo", soldierId);
       this.$store.dispatch("fetchPersistenceGrants", soldierId);
       this.$store.dispatch("fetchProficiencyBonus", soldierId);
+      this.$store.dispatch("fetchCourses", soldierId);
     },
   },
 };
