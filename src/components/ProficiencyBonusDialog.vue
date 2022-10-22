@@ -6,7 +6,7 @@
       <div
         v-if="
           (type === 'A' && proficiencyBonus?.firstCompletionRate === 1) ||
-          (type === 'B' && proficiencyBonus?.scondCompletionRate === 1)
+          (type === 'B' && proficiencyBonus?.secondCompletionRate === 1)
         "
         class="d-flex flex-column justify-center"
       >
@@ -22,39 +22,31 @@
           }}</span>
         </p>
       </div>
-      <div v-else>else</div>
+      <div v-else>
+        <ProficiencyBonusChart
+          :complitionRate="
+            type === 'A'
+              ? proficiencyBonus?.firstCompletionRate
+              : proficiencyBonus?.secondCompletionRate
+          "
+        />
+      </div>
     </div>
   </BaseDialog>
 </template>
 
 <script>
 import BaseDialog from "./BaseDialog.vue";
+import ProficiencyBonusChart from "./ProficiencyBonusChart.vue";
 
 export default {
   name: "ProficiencyBonusDialog",
 
-  components: { BaseDialog },
+  components: { BaseDialog, ProficiencyBonusChart },
 
   data: () => ({
     type: null,
   }),
-
-  // props: {
-  //   type: {
-  //     type: String,
-  //     required: false,
-  //     validator: (string) => {
-  //       return string === "A" || string === "B";
-  //     },
-  //   },
-  //   completed: {
-  //     type: Number,
-  //     required: false,
-  //     validator: (num) => {
-  //       return num >= 0 && num <= 1;
-  //     },
-  //   },
-  // },
 
   mounted() {
     this.$root.$on("openProficiencyBonusDialog", (type) => {
@@ -62,6 +54,7 @@ export default {
       this.$refs.dialog.openDialog();
     });
   },
+
   computed: {
     proficiencyBonus() {
       return this.$store.getters.proficiencyBonus;
