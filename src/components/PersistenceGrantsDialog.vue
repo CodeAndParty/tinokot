@@ -35,7 +35,7 @@ export default {
   components: { BaseDialog },
 
   mounted() {
-    this.$root.$on("openDialog", this.openDialog);
+    this.$root.$on("openPersistenceGrantsDialog", this.$refs.dialog.openDialog);
   },
   computed: {
     timeline() {
@@ -63,14 +63,6 @@ export default {
         }
       });
       return timeline;
-    },
-  },
-
-  methods: {
-    openDialog(dialogName) {
-      if (dialogName === "persistenceGrants") {
-        this.$refs.dialog.openDialog();
-      }
     },
   },
 };
