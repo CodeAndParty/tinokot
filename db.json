@@ -109,6 +109,22 @@
       "secondCompletionRate": 0.376
     }
   ],
+  "courses": [
+    {
+      "id": 1,
+      "soldierId": 3,
+      "courses": [
+        {
+          "name": "test",
+          "validity": "2022-10-22"
+        },
+        {
+          "name": "test2",
+          "validity": "2021-06-08"
+        }
+      ]
+    }
+  ],
   "attendanceReport": [
     {
       "id": 1,
