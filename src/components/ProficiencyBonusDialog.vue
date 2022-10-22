@@ -31,7 +31,7 @@
 import BaseDialog from "./BaseDialog.vue";
 
 export default {
-  name: "ProficiencyBonus",
+  name: "ProficiencyBonusDialog",
 
   components: { BaseDialog },
 
