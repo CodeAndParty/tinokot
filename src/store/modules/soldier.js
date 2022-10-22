@@ -4,6 +4,7 @@ const state = {
   info: null,
   persistenceGrants: null,
   proficiencyBonus: null,
+  courses: null,
 };
 
 const getters = {
@@ -17,6 +18,7 @@ const getters = {
     ];
   },
   proficiencyBonus: (state) => state.proficiencyBonus,
+  courses: (state) => state.courses,
 };
 
 const actions = {
@@ -40,6 +42,13 @@ const actions = {
     );
     commit("setProficiencyBonus", response.data[0]);
   },
+
+  async fetchCourses({ commit }, soldierId) {
+    const response = await axios.get(
+      `${process.env.VUE_APP_API_URL}/courses/?soldierId=${soldierId}`
+    );
+    commit("setCourses", response.data[0].courses);
+  },
 };
 
 const mutations = {
@@ -48,6 +57,7 @@ const mutations = {
     (state.persistenceGrants = persistenceGrants),
   setProficiencyBonus: (state, proficiencyBonus) =>
     (state.proficiencyBonus = proficiencyBonus),
+  setCourses: (state, courses) => (state.courses = courses),
 };
 
 export default {
