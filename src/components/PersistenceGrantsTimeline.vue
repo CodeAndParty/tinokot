@@ -1,6 +1,5 @@
 <template>
-  <BaseDialog ref="dialog">
-    <template #title> מענקי התמדה </template>
+  <fragment>
     <v-progress-linear
       value="100"
       color="primary"
@@ -23,20 +22,13 @@
         </span>
       </div>
     </v-card-text>
-  </BaseDialog>
+  </fragment>
 </template>
 
 <script>
-import BaseDialog from "./BaseDialog.vue";
-
 export default {
-  name: "PersistenceGrantsDialog",
+  name: "PersistenceGrantsTimeline",
 
-  components: { BaseDialog },
-
-  mounted() {
-    this.$root.$on("openPersistenceGrantsDialog", this.$refs.dialog.openDialog);
-  },
   computed: {
     timeline() {
       const persistenceGrantsDates =

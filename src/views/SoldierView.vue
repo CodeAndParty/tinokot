@@ -6,8 +6,22 @@
       </v-col>
     </v-row>
     <v-row no-gutters>
+      <!-- Persistence Grants  -->
       <v-col>
-        <PersistenceGrants></PersistenceGrants>
+        <!-- Persistence Grants Carousel -->
+        <BaseCard
+          is-clickable
+          @click="$refs.persistenceGrantsTimeline.openDialog()"
+        >
+          <template #title>מענקי התמדה</template>
+          <PersistenceGrantsCarousel></PersistenceGrantsCarousel>
+        </BaseCard>
+
+        <!-- Persistence Grants Timeline -->
+        <BaseDialog is-clickable ref="persistenceGrantsTimeline">
+          <template #title> מענקי התמדה </template>
+          <PersistenceGrantsTimeline></PersistenceGrantsTimeline>
+        </BaseDialog>
       </v-col>
       <v-col>
         <ProficiencyBonus></ProficiencyBonus>
@@ -19,16 +33,22 @@
 
 <script>
 import SoldierInfoCard from "@/components/SoldierInfoCard.vue";
-import PersistenceGrants from "@/components/PersistenceGrants.vue";
 import ProficiencyBonus from "@/components/ProficiencyBonus.vue";
+import BaseCard from "@/components/BaseCard.vue";
+import PersistenceGrantsCarousel from "@/components/PersistenceGrantsCarousel.vue";
+import BaseDialog from "@/components/BaseDialog.vue";
+import PersistenceGrantsTimeline from "@/components/PersistenceGrantsTimeline.vue";
 
 export default {
   name: "SoldierView",
 
   components: {
     SoldierInfoCard,
-    PersistenceGrants,
     ProficiencyBonus,
+    BaseCard,
+    PersistenceGrantsCarousel,
+    BaseDialog,
+    PersistenceGrantsTimeline,
   },
 
   mounted() {
@@ -50,5 +70,10 @@ export default {
       this.$store.dispatch("fetchCourses", soldierId);
     },
   },
+
+  // Testing
+  data: () => ({
+    dialog: false,
+  }),
 };
 </script>
