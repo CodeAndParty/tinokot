@@ -30,8 +30,6 @@
 
 <script>
 export default {
-  name: "PersistenceGrantsCarousel",
-
   computed: {
     persistenceGrantsDates() {
       return this.$store.getters.persistenceGrantsDates;

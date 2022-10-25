@@ -8,20 +8,11 @@
     <v-row no-gutters>
       <!-- Persistence Grants  -->
       <v-col>
-        <!-- Persistence Grants Carousel -->
-        <BaseCard
-          is-clickable
-          @click="$refs.persistenceGrantsDialog.openDialog()"
-        >
-          <template #title>מענקי התמדה</template>
-          <PersistenceGrantsCarousel></PersistenceGrantsCarousel>
-        </BaseCard>
+        <!-- Persistence Grants Card -->
+        <PersistenceGrantsCard></PersistenceGrantsCard>
 
-        <!-- Persistence Grants Timeline -->
-        <BaseDialog is-clickable ref="persistenceGrantsDialog">
-          <template #title> מענקי התמדה </template>
-          <PersistenceGrantsTimeline></PersistenceGrantsTimeline>
-        </BaseDialog>
+        <!-- Persistence Grants Dialog -->
+        <PersistenceGrantsDialog></PersistenceGrantsDialog>
       </v-col>
       <v-col>
         <ProficiencyBonus></ProficiencyBonus>
@@ -34,10 +25,8 @@
 <script>
 import SoldierInfoCard from "@/components/SoldierInfoCard.vue";
 import ProficiencyBonus from "@/components/ProficiencyBonus.vue";
-import BaseCard from "@/components/BaseCard.vue";
-import PersistenceGrantsCarousel from "@/components/PersistenceGrantsCarousel.vue";
-import BaseDialog from "@/components/BaseDialog.vue";
-import PersistenceGrantsTimeline from "@/components/PersistenceGrantsTimeline.vue";
+import PersistenceGrantsCard from "@/components/PersistenceGrants/PersistenceGrantsCard.vue";
+import PersistenceGrantsDialog from "@/components/PersistenceGrants/PersistenceGrantsDialog.vue";
 
 export default {
   name: "SoldierView",
@@ -45,10 +34,8 @@ export default {
   components: {
     SoldierInfoCard,
     ProficiencyBonus,
-    BaseCard,
-    PersistenceGrantsCarousel,
-    BaseDialog,
-    PersistenceGrantsTimeline,
+    PersistenceGrantsCard,
+    PersistenceGrantsDialog,
   },
 
   mounted() {
