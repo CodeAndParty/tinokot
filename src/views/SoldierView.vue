@@ -11,14 +11,14 @@
         <!-- Persistence Grants Carousel -->
         <BaseCard
           is-clickable
-          @click="$refs.persistenceGrantsTimeline.openDialog()"
+          @click="$refs.persistenceGrantsDialog.openDialog()"
         >
           <template #title>מענקי התמדה</template>
           <PersistenceGrantsCarousel></PersistenceGrantsCarousel>
         </BaseCard>
 
         <!-- Persistence Grants Timeline -->
-        <BaseDialog is-clickable ref="persistenceGrantsTimeline">
+        <BaseDialog is-clickable ref="persistenceGrantsDialog">
           <template #title> מענקי התמדה </template>
           <PersistenceGrantsTimeline></PersistenceGrantsTimeline>
         </BaseDialog>
