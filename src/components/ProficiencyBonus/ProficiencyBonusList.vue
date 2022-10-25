@@ -1,7 +1,5 @@
 <template>
-  <BaseCard is-clickable>
-    <template #title> גמו"ש </template>
-
+  <fragment>
     <div v-for="n in proficiencyBonus?.type === 'A' ? 1 : 2" :key="n">
       <div
         class="px-5"
@@ -9,7 +7,9 @@
           'text-center mt-10': proficiencyBonus?.type === 'A',
           'd-flex mt-4': proficiencyBonus?.type === 'AB',
         }"
-        @click="$root.$emit('openProficiencyBonusDialog', n === 1 ? 'A' : 'B')"
+        @click="
+          $root.$emit('open-proficiency-bonus-dialog', n === 1 ? 'A' : 'B')
+        "
       >
         <p class="mb-0">
           <span class="text-h6 font-weight-bold">{{
@@ -47,16 +47,11 @@
         class="my-5"
       ></v-divider>
     </div>
-  </BaseCard>
+  </fragment>
 </template>
 
 <script>
-import BaseCard from "./BaseCard.vue";
 export default {
-  name: "ProficiencyBonusCard",
-
-  components: { BaseCard },
-
   computed: {
     proficiencyBonus() {
       return this.$store.getters.proficiencyBonus;

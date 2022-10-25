@@ -8,20 +8,16 @@
           (type === 'A' && proficiencyBonus?.firstCompletionRate === 1) ||
           (type === 'B' && proficiencyBonus?.secondCompletionRate === 1)
         "
-        class="d-flex flex-column justify-center"
       >
-        <v-icon size="9rem" color="success" class="ml-4"
-          >mdi-party-popper</v-icon
-        >
-        <p class="font-weight-bold">
-          <span>מקבל גמו"ש מה </span>
-          <span>{{
-            type === "A"
-              ? $formatDateString(proficiencyBonus?.firstDate)
-              : $formatDateString(proficiencyBonus?.secondDate)
-          }}</span>
-        </p>
+        <ProficiencyBonusCompleted
+          :startDate="
+            type === 'A'
+              ? proficiencyBonus?.firstDate
+              : proficiencyBonus?.secondDate
+          "
+        />
       </div>
+
       <div v-else>
         <ProficiencyBonusChart
           :complitionRate="
@@ -36,20 +32,19 @@
 </template>
 
 <script>
-import BaseDialog from "./BaseDialog.vue";
+import BaseDialog from "@/components/BaseDialog.vue";
 import ProficiencyBonusChart from "./ProficiencyBonusChart.vue";
+import ProficiencyBonusCompleted from "./ProficiencyBonusCompleted.vue";
 
 export default {
-  name: "ProficiencyBonusDialog",
-
-  components: { BaseDialog, ProficiencyBonusChart },
+  components: { BaseDialog, ProficiencyBonusChart, ProficiencyBonusCompleted },
 
   data: () => ({
     type: null,
   }),
 
   mounted() {
-    this.$root.$on("openProficiencyBonusDialog", (type) => {
+    this.$root.$on("open-proficiency-bonus-dialog", (type) => {
       this.type = type;
       this.$refs.dialog.openDialog();
     });

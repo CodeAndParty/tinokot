@@ -6,8 +6,6 @@
 import { Chart } from "highcharts-vue";
 
 export default {
-  name: "ProficiencyBonusChart",
-
   props: {
     complitionRate: {
       type: Number,

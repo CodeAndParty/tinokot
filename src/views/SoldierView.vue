@@ -9,13 +9,18 @@
       <!-- Persistence Grants  -->
       <v-col>
         <!-- Persistence Grants Card -->
-        <PersistenceGrantsCard></PersistenceGrantsCard>
+        <PersistenceGrantsCard />
 
         <!-- Persistence Grants Dialog -->
-        <PersistenceGrantsDialog></PersistenceGrantsDialog>
+        <PersistenceGrantsDialog />
       </v-col>
+      <!-- Proficiency Bonus -->
       <v-col>
-        <ProficiencyBonus></ProficiencyBonus>
+        <!-- Proficiency Bonus Card -->
+        <ProficiencyBonusCard />
+
+        <!-- Proficiency Bonus Dialog -->
+        <ProficiencyBonusDialog />
       </v-col>
     </v-row>
     <v-row no-gutters> </v-row>
@@ -24,18 +29,22 @@
 
 <script>
 import SoldierInfoCard from "@/components/SoldierInfoCard.vue";
-import ProficiencyBonus from "@/components/ProficiencyBonus.vue";
+
 import PersistenceGrantsCard from "@/components/PersistenceGrants/PersistenceGrantsCard.vue";
 import PersistenceGrantsDialog from "@/components/PersistenceGrants/PersistenceGrantsDialog.vue";
 
-export default {
-  name: "SoldierView",
+import ProficiencyBonusCard from "@/components/ProficiencyBonus/ProficiencyBonusCard.vue";
+import ProficiencyBonusDialog from "@/components/ProficiencyBonus/ProficiencyBonusDialog.vue";
 
+export default {
   components: {
     SoldierInfoCard,
-    ProficiencyBonus,
+
     PersistenceGrantsCard,
     PersistenceGrantsDialog,
+
+    ProficiencyBonusCard,
+    ProficiencyBonusDialog,
   },
 
   mounted() {
@@ -57,10 +66,5 @@ export default {
       this.$store.dispatch("fetchCourses", soldierId);
     },
   },
-
-  // Testing
-  data: () => ({
-    dialog: false,
-  }),
 };
 </script>
