@@ -27,8 +27,6 @@
 
 <script>
 export default {
-  name: "OrganizationalStructure",
-
   data: () => ({
     items: [
       {

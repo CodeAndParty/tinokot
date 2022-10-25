@@ -14,7 +14,7 @@
     </v-app-bar>
 
     <v-navigation-drawer app clipped right permanent color="primary">
-      <OrganizationalStructure></OrganizationalStructure>
+      <TheOrganizationalStructure></TheOrganizationalStructure>
     </v-navigation-drawer>
 
     <v-main>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import OrganizationalStructure from "./components/OrganizationalStructure.vue";
+import TheOrganizationalStructure from "@/components/TheOrganizationalStructure.vue";
 
 export default {
   name: "App",
@@ -34,7 +34,7 @@ export default {
   }),
 
   components: {
-    OrganizationalStructure,
+    TheOrganizationalStructure,
   },
 };
 </script>
