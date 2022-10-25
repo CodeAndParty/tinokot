@@ -16,10 +16,6 @@ import TheSidenav from "@/components/TheSidenav.vue";
 export default {
   name: "App",
 
-  data: () => ({
-    //
-  }),
-
   components: {
     TheToolbar,
     TheSidenav,
