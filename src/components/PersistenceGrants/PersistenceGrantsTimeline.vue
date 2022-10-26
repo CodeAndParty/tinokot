@@ -27,26 +27,23 @@
 
 <script>
 export default {
-  name: "PersistenceGrantsTimeline",
-
   computed: {
     timeline() {
-      const persistenceGrantsDates =
-        this.$store.getters.persistenceGrantsDates?.slice(0);
-      persistenceGrantsDates.push(new Date().toLocaleDateString());
-      persistenceGrantsDates.sort((dateA, dateB) => {
+      const dates = this.$store.getters.persistenceGrantsDates.slice(0);
+      dates.push(new Date().toLocaleDateString());
+      dates.sort((dateA, dateB) => {
         return new Date(dateA) - new Date(dateB);
       });
 
       const timeline = [];
-      let persistenceGrantCounter = 1;
-      persistenceGrantsDates.forEach((date) => {
+      let counter = 1;
+      dates.forEach((date) => {
         if (!this.$isDateStringToday(date)) {
           timeline.push({
-            name: `מענק ${persistenceGrantCounter}`,
+            name: `מענק ${counter}`,
             date: date,
           });
-          persistenceGrantCounter++;
+          counter++;
         } else {
           timeline.push({
             name: "היום",
