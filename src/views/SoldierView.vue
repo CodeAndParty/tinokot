@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container fluid v-if="!loading">
     <v-row no-gutters>
       <v-col>
         <SoldierInfoCard></SoldierInfoCard>
@@ -25,6 +25,8 @@
     </v-row>
     <v-row no-gutters> </v-row>
   </v-container>
+  <!-- Loading  -->
+  <LoadingView v-else />
 </template>
 
 <script>
@@ -36,6 +38,8 @@ import PersistenceGrantsDialog from "@/components/PersistenceGrants/PersistenceG
 import ProficiencyBonusCard from "@/components/ProficiencyBonus/ProficiencyBonusCard.vue";
 import ProficiencyBonusDialog from "@/components/ProficiencyBonus/ProficiencyBonusDialog.vue";
 
+import LoadingView from "@/views/LoadingView.vue";
+
 export default {
   components: {
     SoldierInfoCard,
@@ -45,25 +49,31 @@ export default {
 
     ProficiencyBonusCard,
     ProficiencyBonusDialog,
+
+    LoadingView,
   },
 
-  mounted() {
+  data: () => ({
+    loading: Boolean,
+  }),
+
+  async mounted() {
     this.fetchSoldier();
-  },
 
-  watch: {
-    $route() {
-      this.fetchSoldier();
-    },
+    this.$watch(() => this.$route.params, this.fetchSoldier);
   },
 
   methods: {
-    fetchSoldier() {
+    async fetchSoldier() {
+      this.loading = true;
+
       const soldierId = this.$route.params.id;
-      this.$store.dispatch("fetchInfo", soldierId);
-      this.$store.dispatch("fetchPersistenceGrants", soldierId);
-      this.$store.dispatch("fetchProficiencyBonus", soldierId);
-      this.$store.dispatch("fetchCourses", soldierId);
+      await this.$store.dispatch("fetchInfo", soldierId);
+      await this.$store.dispatch("fetchPersistenceGrants", soldierId);
+      await this.$store.dispatch("fetchProficiencyBonus", soldierId);
+      await this.$store.dispatch("fetchCourses", soldierId);
+
+      this.loading = false;
     },
   },
 };
