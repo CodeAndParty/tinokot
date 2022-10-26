@@ -46,7 +46,7 @@ export default {
   mounted() {
     this.$root.$on("open-proficiency-bonus-dialog", (type) => {
       this.type = type;
-      this.$refs.dialog.openDialog();
+      this.$refs.dialog?.openDialog();
     });
   },
 
