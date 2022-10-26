@@ -5,15 +5,15 @@
     <div class="d-flex justify-center">
       <div
         v-if="
-          (type === 'A' && proficiencyBonus?.firstCompletionRate === 1) ||
-          (type === 'B' && proficiencyBonus?.secondCompletionRate === 1)
+          (type === 'A' && proficiencyBonus.firstCompletionRate === 1) ||
+          (type === 'B' && proficiencyBonus.secondCompletionRate === 1)
         "
       >
         <ProficiencyBonusCompleted
           :startDate="
             type === 'A'
-              ? proficiencyBonus?.firstDate
-              : proficiencyBonus?.secondDate
+              ? proficiencyBonus.firstDate
+              : proficiencyBonus.secondDate
           "
         />
       </div>
@@ -22,8 +22,8 @@
         <ProficiencyBonusChart
           :complitionRate="
             type === 'A'
-              ? proficiencyBonus?.firstCompletionRate
-              : proficiencyBonus?.secondCompletionRate
+              ? proficiencyBonus.firstCompletionRate
+              : proficiencyBonus.secondCompletionRate
           "
         />
       </div>
@@ -40,7 +40,7 @@ export default {
   components: { BaseDialog, ProficiencyBonusChart, ProficiencyBonusCompleted },
 
   data: () => ({
-    type: null,
+    type: String,
   }),
 
   mounted() {
