@@ -12,19 +12,19 @@
 
     <div>
       <v-card-title>
-        <span class="green--text">{{ soldierInfo?.rank }}</span>
+        <span class="green--text">{{ soldierInfo.rank }}</span>
         <span>&nbsp;</span>
-        <span>{{ soldierInfo?.name }}</span>
+        <span>{{ soldierInfo.name }}</span>
       </v-card-title>
       <v-card-subtitle class="white--text">{{
-        soldierInfo?.pernr
+        soldierInfo.pernr
       }}</v-card-subtitle>
     </div>
 
     <v-divider vertical class="white"></v-divider>
     <div class="mx-auto">
       <v-icon color="accent">mdi-cake</v-icon>
-      <span>{{ $formatDateString(soldierInfo?.birthDate, false) }}</span>
+      <span>{{ $formatDateString(soldierInfo.birthDate, false) }}</span>
     </div>
 
     <v-divider vertical class="white"></v-divider>
@@ -32,21 +32,19 @@
       <v-icon color="accent">mdi-account-box</v-icon>
       <span>פרופיל</span>
       <span>&nbsp;</span>
-      <span>{{ soldierInfo?.medicalScore }}</span>
+      <span>{{ soldierInfo.medicalScore }}</span>
     </div>
 
     <v-divider vertical class="white"></v-divider>
     <div class="mx-auto">
       <v-icon color="accent">mdi-phone</v-icon>
-      <span>{{ soldierInfo?.cell }}</span>
+      <span>{{ soldierInfo.cell }}</span>
     </div>
   </v-card>
 </template>
 
 <script>
 export default {
-  name: "SoldierInfoCard",
-
   computed: {
     soldierInfo() {
       return this.$store.getters.info;
