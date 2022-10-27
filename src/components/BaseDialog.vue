@@ -3,9 +3,9 @@
     <v-dialog v-model="dialog" content-class="elevation-0 rounded-xl">
       <BaseCard is-dialog>
         <template #title>
-          <v-spacer></v-spacer>
+          <v-spacer />
           <slot name="title" />
-          <v-spacer></v-spacer>
+          <v-spacer />
 
           <v-btn icon color="secondary" @click="dialog = false">
             <v-icon>mdi-close</v-icon>
@@ -33,6 +33,10 @@ export default {
   methods: {
     openDialog() {
       this.dialog = true;
+    },
+
+    closeDialog() {
+      this.dialog = false;
     },
   },
 };
