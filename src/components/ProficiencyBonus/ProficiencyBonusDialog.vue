@@ -26,6 +26,7 @@
               : proficiencyBonus.secondCompletionRate
           "
         />
+        <CoursesTable />
       </div>
     </div>
   </BaseDialog>
@@ -36,8 +37,15 @@ import BaseDialog from "@/components/BaseDialog.vue";
 import ProficiencyBonusChart from "./ProficiencyBonusChart.vue";
 import ProficiencyBonusCompleted from "./ProficiencyBonusCompleted.vue";
 
+import CoursesTable from "../Courses/CoursesTable.vue";
+
 export default {
-  components: { BaseDialog, ProficiencyBonusChart, ProficiencyBonusCompleted },
+  components: {
+    BaseDialog,
+    ProficiencyBonusChart,
+    ProficiencyBonusCompleted,
+    CoursesTable,
+  },
 
   data: () => ({
     type: String,
