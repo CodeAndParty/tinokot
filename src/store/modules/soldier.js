@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const api = process.env.VUE_APP_API_URL;
+
 const state = {
   info: null,
   persistenceGrants: null,
@@ -23,31 +25,50 @@ const getters = {
 
 const actions = {
   async fetchInfo({ commit }, id) {
-    const response = await axios.get(
-      `${process.env.VUE_APP_API_URL}/soldiers/${id}`
-    );
+    const response = await axios.get(`${api}/soldiers/${id}`);
     commit("setInfo", response.data);
   },
 
   async fetchPersistenceGrants({ commit }, soldierId) {
     const response = await axios.get(
-      `${process.env.VUE_APP_API_URL}/persistenceGrants/?soldierId=${soldierId}`
+      `${api}/persistenceGrants/?soldierId=${soldierId}`
     );
     commit("setPersistenceGrants", response.data[0]);
   },
 
   async fetchProficiencyBonus({ commit }, soldierId) {
     const response = await axios.get(
-      `${process.env.VUE_APP_API_URL}/proficiencyBonus/?soldierId=${soldierId}`
+      `${api}/proficiencyBonus/?soldierId=${soldierId}`
     );
     commit("setProficiencyBonus", response.data[0]);
   },
 
   async fetchCourses({ commit }, soldierId) {
-    const response = await axios.get(
-      `${process.env.VUE_APP_API_URL}/courses/?soldierId=${soldierId}`
+    const response = await axios.get(`${api}/courses/?soldierId=${soldierId}`);
+
+    commit("setCourses", response.data);
+  },
+
+  async createCourse({ getters, commit }, { ...course }) {
+    course.soldierId = getters.info.id;
+    const response = await axios.post(`${api}/courses/`, course);
+    commit("setCourses", [...getters.courses, response.data]);
+  },
+
+  async updateCourse({ getters, commit }, course) {
+    const response = await axios.put(`${api}/courses/${course.id}`, course);
+    commit("setCourses", [
+      ...getters.courses.filter((course) => course.id !== response.data.id),
+      response.data,
+    ]);
+  },
+
+  async deleteCourse({ getters, commit }, id) {
+    await axios.delete(`${api}/courses/${id}`);
+    commit(
+      "setCourses",
+      getters.courses.filter((course) => course.id !== id)
     );
-    commit("setCourses", response.data[0].courses);
   },
 };
 
