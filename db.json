@@ -112,17 +112,27 @@
   "courses": [
     {
       "id": 1,
+      "soldierId": 2,
+      "name": "קורס 1 של חייל 2",
+      "validity": "2022-10-27"
+    },
+    {
+      "id": 2,
+      "soldierId": 5,
+      "name": "קורס 1 של חייל 5",
+      "validity": "2022-10-27"
+    },
+    {
+      "id": 3,
+      "soldierId": 6,
+      "name": "קורס 1 של חייל 6",
+      "validity": "2023-10-27"
+    },
+    {
+      "name": "awd",
+      "validity": "2022-10-22",
       "soldierId": 3,
-      "courses": [
-        {
-          "name": "test",
-          "validity": "2022-10-22"
-        },
-        {
-          "name": "test2",
-          "validity": "2021-06-08"
-        }
-      ]
+      "id": 4
     }
   ],
   "attendanceReport": [
