@@ -9,13 +9,8 @@
       <v-col>
         <PersistenceGrantsCarousel />
       </v-col>
-      <!-- Proficiency Bonus -->
       <v-col>
-        <!-- Proficiency Bonus Card -->
-        <ProficiencyBonusCard />
-
-        <!-- Proficiency Bonus Dialog -->
-        <ProficiencyBonusDialog />
+        <ProficiencyBonusList />
       </v-col>
     </v-row>
   </v-container>
@@ -26,20 +21,19 @@
 <script>
 import SoldierInfoCard from "@/components/SoldierInfoCard.vue";
 
-import ProficiencyBonusCard from "@/components/ProficiencyBonus/ProficiencyBonusCard.vue";
-import ProficiencyBonusDialog from "@/components/ProficiencyBonus/ProficiencyBonusDialog.vue";
-
 import LoadingView from "@/views/LoadingView.vue";
 import PersistenceGrantsCarousel from "@/components/PersistenceGrants/PersistenceGrantsCarousel.vue";
+import ProficiencyBonusList from "@/components/ProficiencyBonus/ProficiencyBonusList.vue";
 
 export default {
   components: {
+    LoadingView,
+
     SoldierInfoCard,
 
-    ProficiencyBonusCard,
-    ProficiencyBonusDialog,
-    LoadingView,
     PersistenceGrantsCarousel,
+
+    ProficiencyBonusList,
   },
 
   data: () => ({
