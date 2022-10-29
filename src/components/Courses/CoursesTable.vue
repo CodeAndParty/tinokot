@@ -15,7 +15,7 @@
             color="primary"
             dark
             class="mb-2"
-            @click="$root.$emit('open-courses-dialog', 'creation')"
+            @click="openDialog('creation')"
           >
             קורס חדש
           </v-btn>
@@ -40,11 +40,7 @@
             }}
           </td>
 
-          <v-btn
-            icon
-            color="secondary"
-            @click="$root.$emit('open-courses-dialog', 'editing', item)"
-          >
+          <v-btn icon color="secondary" @click="openDialog('editing', item)">
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
           <v-btn icon color="secondary" @click="deleteCourse(item.id)">
@@ -53,15 +49,28 @@
         </tr>
       </template>
     </v-data-table>
-    <CoursesDialog @create-course="createCourse" @edit-course="editCourse" />
+
+    <BaseDialog v-model="showDialog">
+      <template #title>
+        {{ formMode === "creation" ? "קורס חדש" : "עריכת קורס" }}
+      </template>
+      <CoursesForm
+        :mode="formMode"
+        :course="formCourse"
+        @create-course="createCourse"
+        @edit-course="editCourse"
+        @close-dialog="showDialog = false"
+      />
+    </BaseDialog>
   </fragment>
 </template>
 
 <script>
-import CoursesDialog from "./CoursesDialog.vue";
+import BaseDialog from "../BaseDialog.vue";
+import CoursesForm from "./CoursesForm.vue";
 
 export default {
-  components: { CoursesDialog },
+  components: { CoursesForm, BaseDialog },
 
   data: () => ({
     headers: [
@@ -74,6 +83,14 @@ export default {
         value: "validity",
       },
     ],
+
+    showDialog: false,
+
+    formMode: "creation",
+    formCourse: {
+      name: "",
+      validity: new Date().toISOString().split("T")[0],
+    },
   }),
 
   computed: {
@@ -83,14 +100,30 @@ export default {
   },
 
   methods: {
+    openDialog(mode, course) {
+      this.formMode = mode;
+      if (course !== undefined) this.formCourse = course;
+      this.showDialog = true;
+    },
+
     createCourse(course) {
+      this.resetCourse();
       this.$store.dispatch("createCourse", course);
     },
     deleteCourse(id) {
+      this.resetCourse();
       this.$store.dispatch("deleteCourse", id);
     },
     editCourse(newCourse) {
+      this.resetCourse();
       this.$store.dispatch("updateCourse", newCourse);
+    },
+
+    resetCourse() {
+      this.formCourse = {
+        name: "",
+        validity: new Date().toISOString().split("T")[0],
+      };
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <BaseDialog ref="dialog">
+  <BaseDialog v-model="dialog">
     <template #title> {{ type === "A" ? 'גמו"ש א' : 'גמו"ש ב' }}</template>
 
     <div class="d-flex justify-center">
@@ -49,12 +49,13 @@ export default {
 
   data: () => ({
     type: String,
+    dialog: false,
   }),
 
   mounted() {
     this.$root.$on("open-proficiency-bonus-dialog", (type) => {
       this.type = type;
-      this.$refs.dialog?.openDialog();
+      this.dialog = true;
     });
   },
 
