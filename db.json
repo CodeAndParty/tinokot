@@ -129,10 +129,22 @@
       "validity": "2023-10-27"
     },
     {
-      "name": "awd",
-      "validity": "2022-10-22",
+      "name": "קורס 1 של חייל 3",
+      "validity": "2022-10-17",
       "soldierId": 3,
       "id": 4
+    },
+    {
+      "name": "קורס 2 של חייל 3",
+      "validity": "2022-10-30",
+      "soldierId": 3,
+      "id": 5
+    },
+    {
+      "name": "קורס 3 של חייל 3",
+      "validity": "2022-12-22",
+      "soldierId": 3,
+      "id": 6
     }
   ],
   "attendanceReport": [
