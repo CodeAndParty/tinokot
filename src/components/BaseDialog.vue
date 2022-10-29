@@ -26,17 +26,22 @@ export default {
 
   components: { BaseCard },
 
-  data: () => ({
-    dialog: false,
-  }),
-
-  methods: {
-    openDialog() {
-      this.dialog = true;
+  props: {
+    value: {
+      type: Boolean,
+      required: true,
     },
+  },
 
-    closeDialog() {
-      this.dialog = false;
+  computed: {
+    dialog: {
+      get() {
+        return this.value;
+      },
+
+      set(value) {
+        this.$emit("input", value);
+      },
     },
   },
 };
