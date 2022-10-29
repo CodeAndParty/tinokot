@@ -3,7 +3,7 @@
     <v-data-table
       :items="items"
       :headers="headers"
-      sort-by="calories"
+      :sort-by="['validity']"
       class="elevation-1"
     >
       <template #top>
